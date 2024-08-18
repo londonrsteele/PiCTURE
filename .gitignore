@@ -5,6 +5,10 @@
 /.vs
 /venv
 /backend/__pycache__
-/frontend/react-app/.pnp.cjs
-/frontend/react-app/.pnp.loader.mjs
-/frontend/react-app/.yarn
+/frontend/react-app/.pnp.*
+/frontend/react-app/.yarn/*
+!/frontend/react-app/.yarn/patches
+!/frontend/react-app/.yarn/plugins
+!/frontend/react-app/.yarn/releases
+!/frontend/react-app/.yarn/sdks
+!/frontend/react-app/.yarn/versions
