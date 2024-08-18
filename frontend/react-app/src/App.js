@@ -2,23 +2,30 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    const [greeting, setGreeting] = useState({
+        greeting: "",
+        name: "",
+    });
+
+    useEffect(() => {
+        fetch("/home").then((res) =>
+            res.json().then((greeting) => {
+                setGreeting({
+                    greeting: greeting.Greeting,
+                    name: greeting.Name,
+                });
+            })
+        );
+    }, []);
+
+    return (
+        <div className="App">
+            <header className="App-header">
+                <p>Hello!</p>
+                <p>{greeting.Greeting}</p>
+                <p>{greeting.Name}</p>
+            </header>
+        </div>
   );
 }
 
