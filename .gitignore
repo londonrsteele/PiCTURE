@@ -5,3 +5,6 @@
 /.vs
 /venv
 /backend/__pycache__
+/frontend/react-app/.pnp.cjs
+/frontend/react-app/.pnp.loader.mjs
+/frontend/react-app/.yarn
