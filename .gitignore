@@ -13,3 +13,4 @@
 !/frontend/react-app/.yarn/sdks
 !/frontend/react-app/.yarn/versions
 /react-app/backend/__pycache__
+/.env
