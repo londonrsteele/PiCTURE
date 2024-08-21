@@ -12,3 +12,4 @@
 !/frontend/react-app/.yarn/releases
 !/frontend/react-app/.yarn/sdks
 !/frontend/react-app/.yarn/versions
+/react-app/backend/__pycache__
