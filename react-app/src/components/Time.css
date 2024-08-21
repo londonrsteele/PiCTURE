@@ -1,0 +1,102 @@
+.DateTimeBox {
+    background-color: transparent;
+    width: 342px;
+    height: 150px;
+
+    display: grid;
+    grid-template-columns: 342px;
+    grid-template-rows: 75px 75px;
+}
+
+.TimeBox {
+    background-color: transparent;
+    width: 342px;
+    height: 75px;
+
+    grid-row: 1 / 2;
+    
+    display: grid;
+    grid-template-columns: 114px 114px 114px;
+    grid-template-rows: 75px;
+}
+
+.Time {
+    background-color: transparent;
+    width: 228px;
+    height: 75px;
+    font-size: 65px;
+    line-height: 65px;
+
+    grid-column: 1 / span 2;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: end;
+}
+
+.AMPM {
+    background-color: transparent;
+    width: 114px;
+    height: 75px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+
+    grid-column: 3 / span 1;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: start;
+}
+
+.DateBox {
+    background-color: transparent;
+    width: 342px;
+    height: 75px;
+
+    grid-row: 2 / 3;
+    
+    display: grid;
+    grid-template-columns: 142px 142px 58px;
+    grid-template-rows: 75px;
+}
+
+.DOW {
+    background-color: transparent;
+    width: 142px;
+    height: 75px;
+    font-size: 24px;
+    line-height: 24px;
+
+    grid-column: 1 / span 1;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.Month {
+    background-color: transparent;
+    width: 142px;
+    height: 75px;
+    font-size: 24px;
+    line-height: 24px;
+
+    grid-column: 2 / span 1;
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.Date {
+    background-color: transparent;
+    width: 58px;
+    height: 75px;
+    font-size: 50px;
+    grid-column: 3 / span 1;
+}
