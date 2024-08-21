@@ -3,6 +3,7 @@
 # Descrptn : Flask server for React app
 from flask import Flask
 import datetime
+import subprocess
 
 # Initialize app
 app = Flask(__name__)
@@ -30,7 +31,18 @@ def give_time():
         "ampm": now.strftime("%p")
     }
 
-
+# One route for api
+@app.route("/wifi")
+def give_wifi():
+    wifi = subprocess.check_output(['netsh', 'WLAN', 'show', 'interfaces'])
+    data = wifi.decode('utf-8')
+    if "GoStarsCTX" in data:
+        return_msg = "Connected: GoStarsCTX"
+    else:
+        return_msg = "Not Connected :("
+    return {
+        "wifi": return_msg
+    }
 
 
 
