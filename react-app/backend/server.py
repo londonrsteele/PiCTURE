@@ -44,6 +44,14 @@ def give_wifi():
         "wifi": return_msg
     }
 
+# One route for api
+@app.route("/updated")
+def give_updated():
+    now = datetime.datetime.now()
+    # return an api
+    return {
+        "time": now.strftime("%I:%M%p")
+    }
 
 
 
