@@ -43,7 +43,7 @@
     font-weight: bold;
     line-height: 24px;
 
-    grid-column: 3 / span 1;
+    grid-column: 3 / 4;
 
     display: flex;
     flex-wrap: wrap;
@@ -70,7 +70,7 @@
     font-size: 24px;
     line-height: 24px;
 
-    grid-column: 1 / span 1;
+    grid-column: 1 / 2;
 
     display: flex;
     flex-wrap: wrap;
@@ -85,7 +85,7 @@
     font-size: 24px;
     line-height: 24px;
 
-    grid-column: 2 / span 1;
+    grid-column: 2 / 3;
     
     display: flex;
     flex-wrap: wrap;
@@ -98,5 +98,5 @@
     width: 58px;
     height: 75px;
     font-size: 50px;
-    grid-column: 3 / span 1;
+    grid-column: 3 / 4;
 }
