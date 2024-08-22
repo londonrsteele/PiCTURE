@@ -18,6 +18,7 @@
 
     margin: 1px;
     border: thin solid black;
+    border-radius: 20px;
 }
 
 .CalendarItem-date {

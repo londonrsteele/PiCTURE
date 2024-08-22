@@ -6,6 +6,10 @@
     display: grid;
     grid-template-columns: 342px;
     grid-template-rows: 75px 75px;
+
+    margin: 1px;
+    border: thin solid black;
+    border-radius: 20px;
 }
 
 .TimeBox {
