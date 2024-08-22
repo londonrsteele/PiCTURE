@@ -14,3 +14,7 @@
 !/frontend/react-app/.yarn/versions
 /react-app/backend/__pycache__
 /.env
+/react-app/backend/credentials.json
+/react-app/backend/token.json
+/react-app/backend/quickstart.py
+/token.json

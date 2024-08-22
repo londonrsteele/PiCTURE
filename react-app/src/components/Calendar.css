@@ -1,0 +1,83 @@
+.Calendar {
+    background-color: transparent;
+    width: 682px;
+    height: 400px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.CalendarItem{
+    background-color: transparent;
+    width: 682px;
+    height: 80px;
+
+    display: grid;
+    grid-template-columns: 227px 227px 227px;
+    grid-template-rows: 80px;
+
+    margin: 1px;
+    border: thin solid black;
+}
+
+.CalendarItem-date {
+    background-color: transparent;
+    width: 227px;
+    height: 80px;
+}
+
+.CalendarItem-name {
+    background-color: transparent;
+    width: 227px;
+    height: 80px;
+
+    display: flex;
+    flex-wrap: wrap;
+    word-break: break-all;
+}
+
+.CalendarItem-Time {
+    background-color: transparent;
+    width: 227px;
+    height: 80px;
+
+    display: grid;
+    grid-template-columns: 227px;
+    grid-template-rows: 30px 20px 30px;
+}
+
+.CalendarItem-start {
+    background-color: transparent;
+    width: 227px;
+    height: 30px;
+
+    grid-row: 1 / 2;
+
+    font-size: 16px;
+    line-height: 16px;
+    align-content: center;
+}
+
+.CalendarItem-to {
+    background-color: transparent;
+    width: 227px;
+    height: 20px;
+
+    grid-row: 2 / 3;
+
+    font-size: 12px;
+    line-height: 12px;
+    align-content: center;
+}
+
+.CalendarItem-end {
+    background-color: transparent;
+    width: 227px;
+    height: 30px;
+
+    grid-row: 3  / 4;
+    
+    font-size: 16px;
+    line-height: 16px;
+    align-content: center;
+}
