@@ -95,7 +95,7 @@ def give_calendar():
             .list(
                 calendarId="primary",
                 timeMin=now,
-                maxResults=10,
+                maxResults=5,
                 singleEvents=True,
                 orderBy="startTime",
                 timeZone="CST"
@@ -111,28 +111,48 @@ def give_calendar():
         # Prints the start and name of the next 10 events
         event_list = []
         for event in events:
-            start = event["start"].get("dateTime", "date")
-            start_format = "%Y-%m-%dT%H:%M:%S%z"
-            start_object = datetime.datetime.strptime(start, start_format)
-            end = event["end"].get("dateTime", "date")
-            end_format = "%Y-%m-%dT%H:%M:%S%z"
-            end_object = datetime.datetime.strptime(end, end_format)
+            
+            # For timed (not all-day) events
+            event_start = event["start"].get("dateTime")
+            if event_start:
+                start_format = "%Y-%m-%dT%H:%M:%S%z"
+                start_object = datetime.datetime.strptime(event_start, start_format)
+                start = start_object.strftime("%I:%M %p")
 
-            date = str(start_object.strftime("%a %b %d, %Y"))
+                event_end = event["end"].get("dateTime")
+                end_format = "%Y-%m-%dT%H:%M:%S%z"
+                end_object = datetime.datetime.strptime(event_end, end_format)
+                end = end_object.strftime("%I:%M %p")
+
+                event_date = event["start"].get("dateTime")
+                date_format = "%Y-%m-%dT%H:%M:%S%z"
+                date_object = datetime.datetime.strptime(event_date, date_format)
+                date = str(date_object.strftime("%a %b %d, %Y"))
+            
+            # for all-day events
+            else:
+                start = "All Day"
+                end = "All Night"
+
+                event_date = event["start"].get("date")
+                date_format = "%Y-%m-%d"
+                date_object = datetime.datetime.strptime(event_date, date_format)
+                date = str(date_object.strftime("%a %b %d, %Y"))
+
+            # Check if date == Today
             today = str(datetime.datetime.now().strftime("%a %b %d, %Y"))
             if date == today:
                 date = "Today"
 
             event_dict = {
                 "date": date,
-                "start": start_object.strftime("%I:%M %p"),
-                "end": end_object.strftime("%I:%M %p"),
+                "start": start,
+                "end": end,
                 "summary": event["summary"]
             }
 
             event_list.append(event_dict)
         
-        print(event_list)
         return jsonify(items=event_list)
 
     except HttpError as error:
