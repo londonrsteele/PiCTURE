@@ -1,6 +1,6 @@
 .DateTimeBox {
     background-color: transparent;
-    width: 342px;
+    width: 339px;
     height: 150px;
 
     display: grid;
@@ -14,7 +14,7 @@
 
 .TimeBox {
     background-color: transparent;
-    width: 342px;
+    width: 339px;
     height: 75px;
 
     grid-row: 1 / 2;
@@ -26,7 +26,7 @@
 
 .Time {
     background-color: transparent;
-    width: 228px;
+    width: 227px;
     height: 75px;
     font-size: 65px;
     line-height: 65px;
@@ -41,7 +41,7 @@
 
 .AMPM {
     background-color: transparent;
-    width: 114px;
+    width: 112px;
     height: 75px;
     font-size: 16px;
     font-weight: bold;
@@ -57,7 +57,7 @@
 
 .DateBox {
     background-color: transparent;
-    width: 342px;
+    width: 339px;
     height: 75px;
 
     grid-row: 2 / 3;
@@ -69,7 +69,7 @@
 
 .DOW {
     background-color: transparent;
-    width: 142px;
+    width: 141px;
     height: 75px;
     font-size: 24px;
     line-height: 24px;
@@ -84,7 +84,7 @@
 
 .Month {
     background-color: transparent;
-    width: 142px;
+    width: 141px;
     height: 75px;
     font-size: 24px;
     line-height: 24px;
@@ -99,7 +99,7 @@
 
 .Date {
     background-color: transparent;
-    width: 58px;
+    width: 56px;
     height: 75px;
     font-size: 50px;
     grid-column: 3 / 4;

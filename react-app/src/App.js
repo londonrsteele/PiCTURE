@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
 import './App.css';
-import Greeting from "./components/Greeting";
 import DateTime from "./components/Time";
 import WiFi from "./components/WiFi";
 import Updated from "./components/Updated";
@@ -18,19 +16,17 @@ function App() {
                 </div>
             </div>
             <div className="RightColumn">
-                <div>
+                <div className="Clock">
                     <DateTime />
                 </div>
-                <div>
+                <div className="Sun">
+
+                </div>
+                <div className="QOTD">
+                    
+                </div>
+                <div className="Status">
                     <Updated />
-                </div>
-                <div>
-                    
-                </div>
-                <div>
-                    
-                </div>
-                <div>
                     <WiFi />
                 </div>
             </div>

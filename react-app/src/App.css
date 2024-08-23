@@ -3,25 +3,60 @@
   height: 600px;
 
   display: grid;
-  grid-template-columns: 682px 342px;
+  grid-template-columns: 679px 339px;
+  column-gap: 3px;
   grid-template-rows: 600px;
+
+  border: thin black solid;
 }
 
 .LeftColumn {
-    width: 682px;
+    width: 679px;
     height: 600px;
 
     display: grid;
-    grid-template-columns: 682px;
+    grid-template-columns: 679px;
     grid-template-rows: 200px 400px;
 }
 
 .RightColumn {
-    width: 342px;
+    width: 339px;
     height: 600px;
 
     display: grid;
-    grid-template-columns: 342px;
-    grid-template-rows: 150px 50px 180px 200px 50px;
+    grid-template-columns: 339px;
+    grid-template-rows: 150px 150px 250px 50px;
 }
 
+.Clock {
+    width: 339px;
+    height: 150px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.Sun {
+    width: 339px;
+    height: 150px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.QOTD {
+    width: 339px;
+    height: 250px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.Status {
+    width: 339px;
+    height: 50px;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
