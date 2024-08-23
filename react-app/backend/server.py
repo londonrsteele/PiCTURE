@@ -6,6 +6,7 @@ from flask import Flask, jsonify
 import datetime
 import subprocess
 import os.path
+import requests
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -14,19 +15,14 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
 
+#########################################################################################
 # Initialize app
+#########################################################################################
 app = Flask(__name__)
 
-# One route for api
-@app.route("/home")
-def say_hello():
-    # return an api
-    return {
-        "Greeting": "Hello, ",
-        "Name": "London!"
-    }
-
-# One route for api
+#########################################################################################
+# One route for api - /time
+#########################################################################################
 @app.route("/time")
 def give_time():
     now = datetime.datetime.now()
@@ -40,7 +36,18 @@ def give_time():
         "ampm": now.strftime("%p")
     }
 
-# One route for api
+#########################################################################################
+# One route for api - /quote
+#########################################################################################
+@app.route("/quote")
+def give_quote():
+    quote_api_url = "https://zenquotes.io/api/quotes"
+    response = requests.get(quote_api_url).json()
+    return response
+
+#########################################################################################
+# One route for api - /wifi
+#########################################################################################
 @app.route("/wifi")
 def give_wifi():
     wifi = subprocess.check_output(['netsh', 'WLAN', 'show', 'interfaces'])
@@ -53,7 +60,9 @@ def give_wifi():
         "wifi": return_msg
     }
 
-# One route for api
+#########################################################################################
+# One route for api - /updated
+#########################################################################################
 @app.route("/updated")
 def give_updated():
     now = datetime.datetime.now()
@@ -62,7 +71,9 @@ def give_updated():
         "time": now.strftime("%I:%M%p")
     }
 
-# One route for api
+#########################################################################################
+# One route for api - /calendar
+#########################################################################################
 @app.route("/calendar")
 def give_calendar():
     creds = None
@@ -159,39 +170,8 @@ def give_calendar():
         print(f"An error occurred: {error}")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#########################################################################################
 # Running app
+#########################################################################################
 if __name__ == "__main__":
     app.run(debug=True)

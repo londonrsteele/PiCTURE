@@ -3,6 +3,7 @@ import DateTime from "./components/Time";
 import WiFi from "./components/WiFi";
 import Updated from "./components/Updated";
 import Calendar from "./components/Calendar";
+import Quote from "./components/Quote";
 
 function App() {
     return (
@@ -23,7 +24,7 @@ function App() {
 
                 </div>
                 <div className="QOTD">
-                    
+                    <Quote />
                 </div>
                 <div className="Status">
                     <Updated />
