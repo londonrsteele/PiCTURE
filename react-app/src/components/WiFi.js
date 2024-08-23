@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import "./WiFi.css"
+
 export default function WiFi() {
     const [wifi, setWiFi] = useState({
         wifi: ""

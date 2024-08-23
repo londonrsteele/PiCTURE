@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import "./Updated.css"
+
 export default function Updated() {
     const [time, setTime] = useState({
         time: ""
