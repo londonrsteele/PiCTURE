@@ -9,10 +9,31 @@ import Calendar from "./components/Calendar";
 function App() {
     return (
         <div className="App">
-            <DateTime />
-            <WiFi />
-            <Updated />
-            <Calendar />
+            <div className="LeftColumn">
+                <div>
+
+                </div>
+                <div>
+                    <Calendar />
+                </div>
+            </div>
+            <div className="RightColumn">
+                <div>
+                    <DateTime />
+                </div>
+                <div>
+                    <Updated />
+                </div>
+                <div>
+                    
+                </div>
+                <div>
+                    
+                </div>
+                <div>
+                    <WiFi />
+                </div>
+            </div>
         </div>
   );
 }
