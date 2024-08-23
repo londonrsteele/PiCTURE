@@ -10,13 +10,14 @@
 
 .CalendarItem{
     background-color: transparent;
-    width: 679px;
+    width: 639px;
     height: 75px;
 
     display: grid;
     grid-template-columns: 227px 227px 227px;
     grid-template-rows: 80px;
 
+    align-self: center;
     margin: 1.5px;
     border: thin solid black;
     border-radius: 20px;
@@ -41,7 +42,7 @@
 
 .CalendarItem-Time {
     background-color: transparent;
-    width: 226px;
+    width: 187px;
     height: 75px;
 
     display: grid;
@@ -51,7 +52,7 @@
 
 .CalendarItem-start {
     background-color: transparent;
-    width: 226px;
+    width: 187px;
     height: 27px;
 
     grid-row: 1 / 2;
@@ -63,7 +64,7 @@
 
 .CalendarItem-to {
     background-color: transparent;
-    width: 226px;
+    width: 187px;
     height: 20px;
 
     grid-row: 2 / 3;
@@ -75,7 +76,7 @@
 
 .CalendarItem-end {
     background-color: transparent;
-    width: 226px;
+    width: 187px;
     height: 27px;
 
     grid-row: 3  / 4;
