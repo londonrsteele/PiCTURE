@@ -42,14 +42,16 @@ export default function Updated() {
 
     if (calendar.list_of_events.length === 0) {
         return (
-            <div className="Calendar" >
-                No events!
+            <div className="CalendarBox" >
+                <div className="NoEvents-Sticky">
+                    No events!
+                </div>
             </div>
         )
     }
     else if (calendar.list_of_events.length === 1) {
         return (
-            <div className="Calendar" >
+            <div className="CalendarBox" >
                 <CalendarItem
                     date={calendar.list_of_events[0].date}
                     name={calendar.list_of_events[0].summary}
@@ -61,7 +63,7 @@ export default function Updated() {
     }
     else if (calendar.list_of_events.length === 2) {
         return (
-            <div className="Calendar" >
+            <div className="CalendarBox" >
                 <CalendarItem
                     date={calendar.list_of_events[0].date}
                     name={calendar.list_of_events[0].summary}
@@ -79,7 +81,7 @@ export default function Updated() {
     }
     else if (calendar.list_of_events.length === 3) {
         return (
-            <div className="Calendar" >
+            <div className="CalendarBox" >
                 <CalendarItem
                     date={calendar.list_of_events[0].date}
                     name={calendar.list_of_events[0].summary}
@@ -103,7 +105,7 @@ export default function Updated() {
     }
     else if (calendar.list_of_events.length === 4) {
         return (
-            <div className="Calendar" >
+            <div className="CalendarBox" >
                 <CalendarItem
                     date={calendar.list_of_events[0].date}
                     name={calendar.list_of_events[0].summary}
@@ -133,7 +135,7 @@ export default function Updated() {
     }
     else if (calendar.list_of_events.length === 5) {
         return (
-            <div className="Calendar" >
+            <div className="CalendarBox" >
                 <CalendarItem
                     date={calendar.list_of_events[0].date}
                     name={calendar.list_of_events[0].summary}

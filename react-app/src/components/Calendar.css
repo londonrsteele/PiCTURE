@@ -1,21 +1,42 @@
-.Calendar {
-    background-color: transparent;
-    width: 679px;
-    height: 400px;
+.CalendarBox {
+    background-color: lightgray;
+    width: 667px;
+    height: 381px;
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
     text-align: center;
+
+    margin: 3px;
+    border: 3px solid;
+    border-radius: 20px;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+}
+
+.NoEvents-Sticky {
+    background-color: yellow;
+    width: 300px;
+    height: 200px;
+    border: thin black solid;
+    transform: rotate(-2deg);
+    padding: 10px;
+    aspect-ratio: 1/1;
+    text-align: center;
+    align-self: center;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .CalendarItem{
-    background-color: transparent;
+    background-color: white;
     width: 639px;
-    height: 75px;
+    height: 70px;
 
     display: grid;
-    grid-template-columns: 227px 227px 227px;
-    grid-template-rows: 80px;
+    grid-template-columns: 243px 243px 153px;
+    grid-template-rows: 70px;
 
     align-self: center;
     margin: 1.5px;
@@ -25,35 +46,41 @@
 
 .CalendarItem-date {
     background-color: transparent;
-    width: 226px;
-    height: 75px;
-}
-
-.CalendarItem-name {
-    background-color: transparent;
-    width: 226px;
-    height: 75px;
+    width: 228px;
+    height: 70px;
 
     display: flex;
     flex-wrap: wrap;
     word-break: break-all;
     justify-content: center;
+    padding: 5px;
+}
+
+.CalendarItem-name {
+    background-color: transparent;
+    width: 228px;
+    height: 70px;
+
+    display: flex;
+    flex-wrap: wrap;
+    word-break: break-all;
+    padding: 5px;
 }
 
 .CalendarItem-Time {
     background-color: transparent;
-    width: 187px;
-    height: 75px;
+    width: 153px;
+    height: 70px;
 
     display: grid;
-    grid-template-columns: 227px;
-    grid-template-rows: 30px 20px 30px;
+    grid-template-columns: 153px;
+    grid-template-rows: 25px 20px 25px;
 }
 
 .CalendarItem-start {
     background-color: transparent;
-    width: 187px;
-    height: 27px;
+    width: 153px;
+    height: 25px;
 
     grid-row: 1 / 2;
 
@@ -64,7 +91,7 @@
 
 .CalendarItem-to {
     background-color: transparent;
-    width: 187px;
+    width: 153px;
     height: 20px;
 
     grid-row: 2 / 3;
@@ -76,8 +103,8 @@
 
 .CalendarItem-end {
     background-color: transparent;
-    width: 187px;
-    height: 27px;
+    width: 153px;
+    height: 25px;
 
     grid-row: 3  / 4;
     
