@@ -18,3 +18,4 @@
 /react-app/backend/token.json
 /react-app/backend/quickstart.py
 /token.json
+/.cache.sqlite

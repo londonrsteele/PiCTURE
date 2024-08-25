@@ -20,8 +20,7 @@ SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
 import openmeteo_requests
 import requests_cache
 from retry_requests import retry
-import pandas as pd
-
+import json
 
 #########################################################################################
 # Initialize app
@@ -202,7 +201,16 @@ def give_weather():
 	    "timezone": "America/Chicago"
     }
     responses = openmeteo.weather_api(url, params=params)
-    return responses
+    response = responses[0]
+    json_response = {
+        "latitude": response.Latitude(),
+        "longitude": response.Longitude(),
+        "current": [
+            {"temperature": response.Current().Variables(0).Value()}
+        ]
+    }
+    return json.dumps(json_response)
+
 
 
 #########################################################################################

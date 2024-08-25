@@ -4,15 +4,17 @@ import "./Weather.css"
 export default function Weather() {
     const [weather, setWeather] = useState({
         latitude: "",
-        longitude: ""
+        longitude: "",
+        temperature: ""
     });
 
     useEffect(() => {
         fetch("/weather").then(res =>
             res.json().then(data => {
                 setWeather({
-                    latitude = data.latitude,
-                    longitude = data.longitude
+                    latitude: data.latitude,
+                    longitude: data.longitude,
+                    temperature: data.current[0].temperature
                 });
             })
         );
@@ -21,6 +23,7 @@ export default function Weather() {
     return (
         <div className="Weather" >
             {weather.latitude}, {weather.longitude}
+            Current Temperature: {weather.temperature}
         </div>
     );
 }
