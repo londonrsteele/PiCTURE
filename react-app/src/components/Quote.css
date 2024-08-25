@@ -18,16 +18,18 @@
 
 .Quote {
     background-color: transparent;
-    width: 327px;
+    width: 323px;
     height: 100px;
     text-align: center;
     align-content: center;
+    padding: 1px;
 }
 
 .Author {
     background-color: transparent;
     width: 327px;
-    height: 30px;
+    height: 20px;
     text-align: center;
     align-content: center;
+    margin-bottom: 10px;
 }
