@@ -192,9 +192,9 @@ def give_weather():
     params = {
 	    "latitude": 31.1171,
 	    "longitude": -97.7278,
-	    "current": ["temperature_2m", "relative_humidity_2m", "apparent_temperature", "is_day", "precipitation", "rain", "weather_code", "cloud_cover", "wind_speed_10m"],
-	    "hourly": ["relative_humidity_2m", "apparent_temperature", "weather_code", "surface_pressure", "uv_index", "is_day"],
-	    "daily": ["weather_code", "temperature_2m_max", "temperature_2m_min", "sunrise", "sunset", "daylight_duration"],
+	    "current": ["temperature_2m", "relative_humidity_2m", "apparent_temperature", "is_day", "precipitation", "weather_code", "cloud_cover", "wind_speed_10m"],
+	    "hourly": ["surface_pressure", "uv_index"],
+	    "daily": ["temperature_2m_max", "temperature_2m_min", "sunrise", "sunset", "daylight_duration"],
 	    "temperature_unit": "fahrenheit",
 	    "wind_speed_unit": "mph",
 	    "precipitation_unit": "inch",
@@ -206,7 +206,25 @@ def give_weather():
         "latitude": response.Latitude(),
         "longitude": response.Longitude(),
         "current": [
-            {"temperature": response.Current().Variables(0).Value()}
+            {"temperature": response.Current().Variables(0).Value()},
+            {"relative_humidity": response.Current().Variables(1).Value()},
+            {"feels_like_temp": response.Current().Variables(2).Value()},
+            {"day_or_night": response.Current().Variables(3).Value()},
+            {"precipitation": response.Current().Variables(4).Value()},
+            {"weather_code": response.Current().Variables(5).Value()},
+            {"cloud_cover": response.Current().Variables(6).Value()},
+            {"wind_speed": response.Current().Variables(7).Value()}
+        ],
+#        "hourly": [
+#            {"surface_pressure": response.Hourly().Variables(0).Value()},
+#            {"uv_index": response.Hourly().Variables(1).Value()}
+#        ],
+        "daily": [
+            {"max_temp": response.Daily().Variables(0).Value()},
+            {"min_temp": response.Daily().Variables(1).Value()},
+            {"sunrise": response.Daily().Variables(2).Value()},
+            {"sunset": response.Daily().Variables(3).Value()},
+            {"daylight_duration": response.Daily().Variables(4).Value()}
         ]
     }
     return json.dumps(json_response)
