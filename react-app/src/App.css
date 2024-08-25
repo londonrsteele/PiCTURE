@@ -1,13 +1,15 @@
 .App {
-  width: 1024px;
-  height: 600px;
+    width: 1024px;
+    height: 600px;
 
-  display: grid;
-  grid-template-columns: 1024px;
-  grid-template-rows: 200px 400px;
+    display: grid;
+    grid-template-columns: 1024px;
+    grid-template-rows: 200px 400px;
 
-  /* remove border before deployment */
-  border: thin black solid;
+    font-family: "Open Sans", sans-serif;
+    color: #000;
+    /* remove border before deployment */
+    border: thin black solid;
 }
 
 .Weather {
@@ -42,12 +44,12 @@
 
     display: grid;
     grid-template-columns: 339px;
-    grid-template-rows: 200px 150px 50px;
+    grid-template-rows: 150px 200px 50px;
 }
 
 .QOTD {
     width: 339px;
-    height: 200px;
+    height: 150px;
 
     display: flex;
     flex-direction: column;
@@ -55,10 +57,12 @@
 
 .Clock {
     width: 339px;
-    height: 150px;
+    height: 200px;
 
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .Status {

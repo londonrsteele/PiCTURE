@@ -1,0 +1,33 @@
+.QuoteBox {
+    background-color: transparent;
+    width: 327px;
+    height: 140px;
+    align-self: center;
+    font-size: 20px;
+
+    display: grid;
+    grid-template-columns: 327px;
+    grid-template-rows: 100px 30px;
+    row-gap: 10px;
+
+    margin: 1px;
+    border: 3px solid;
+    border-radius: 20px;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+}
+
+.Quote {
+    background-color: transparent;
+    width: 327px;
+    height: 100px;
+    text-align: center;
+    align-content: center;
+}
+
+.Author {
+    background-color: transparent;
+    width: 327px;
+    height: 30px;
+    text-align: center;
+    align-content: center;
+}

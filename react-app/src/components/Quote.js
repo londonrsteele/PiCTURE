@@ -19,7 +19,7 @@ export default function Quote() {
     }, []);
 
     return (
-        <div className="QOTD" >
+        <div className="QuoteBox" >
             <div className="Quote">
                 {quote.quote}
             </div>

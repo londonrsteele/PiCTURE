@@ -1,32 +1,36 @@
 .DateTimeBox {
     background-color: transparent;
-    width: 339px;
-    height: 150px;
+    width: 327px;
+    height: 180px;
 
+    align-self: center;
+    
     display: grid;
-    grid-template-columns: 342px;
+    grid-template-columns: 327px;
     grid-template-rows: 75px 75px;
 
     margin: 1px;
-    border: thin solid black;
+    border: 3px solid;
     border-radius: 20px;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
 }
 
 .TimeBox {
     background-color: transparent;
-    width: 339px;
+    width: 327px;
     height: 75px;
+    margin-top: 12px;
 
     grid-row: 1 / 2;
     
     display: grid;
-    grid-template-columns: 114px 114px 114px;
+    grid-template-columns: 120px 120px 87px;
     grid-template-rows: 75px;
 }
 
 .Time {
     background-color: transparent;
-    width: 227px;
+    width: 240px;
     height: 75px;
     font-size: 65px;
     line-height: 65px;
@@ -41,11 +45,11 @@
 
 .AMPM {
     background-color: transparent;
-    width: 112px;
+    width: 87px;
     height: 75px;
     font-size: 16px;
     font-weight: bold;
-    line-height: 24px;
+    line-height: 30px;
 
     grid-column: 3 / 4;
 
@@ -57,19 +61,20 @@
 
 .DateBox {
     background-color: transparent;
-    width: 339px;
+    width: 327px;
     height: 75px;
+    margin-top: 24px;
 
     grid-row: 2 / 3;
     
     display: grid;
-    grid-template-columns: 142px 142px 58px;
+    grid-template-columns: 123px 123px 81px;
     grid-template-rows: 75px;
 }
 
 .DOW {
     background-color: transparent;
-    width: 141px;
+    width: 123px;
     height: 75px;
     font-size: 24px;
     line-height: 24px;
@@ -84,7 +89,7 @@
 
 .Month {
     background-color: transparent;
-    width: 141px;
+    width: 123px;
     height: 75px;
     font-size: 24px;
     line-height: 24px;
@@ -99,8 +104,13 @@
 
 .Date {
     background-color: transparent;
-    width: 56px;
+    width: 81px;
     height: 75px;
     font-size: 50px;
+    line-height: 75px;
+
     grid-column: 3 / 4;
+
+    display: flex;
+    justify-content: center;
 }
