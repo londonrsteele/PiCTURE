@@ -193,7 +193,6 @@ def give_weather():
 	    "latitude": 31.1171,
 	    "longitude": -97.7278,
 	    "current": ["temperature_2m", "relative_humidity_2m", "apparent_temperature", "is_day", "precipitation", "weather_code", "cloud_cover", "wind_speed_10m"],
-	    "hourly": ["surface_pressure", "uv_index"],
 	    "daily": ["temperature_2m_max", "temperature_2m_min", "sunrise", "sunset", "daylight_duration"],
 	    "temperature_unit": "fahrenheit",
 	    "wind_speed_unit": "mph",
@@ -215,10 +214,6 @@ def give_weather():
             {"cloud_cover": response.Current().Variables(6).Value()},
             {"wind_speed": response.Current().Variables(7).Value()}
         ],
-#        "hourly": [
-#            {"surface_pressure": response.Hourly().Variables(0).Value()},
-#            {"uv_index": response.Hourly().Variables(1).Value()}
-#        ],
         "daily": [
             {"max_temp": response.Daily().Variables(0).Value()},
             {"min_temp": response.Daily().Variables(1).Value()},
