@@ -107,7 +107,6 @@ def give_calendar():
 
         # Call the Calendar API
         now = datetime.datetime.now(datetime.timezone.utc).isoformat().replace("+00:00", "Z")
-        print("Getting the upcoming 10 events")
         events_result = (
             service.events()
             .list(
@@ -123,7 +122,6 @@ def give_calendar():
         events = events_result.get("items", [])
 
         if not events:
-            print("No upcoming events found.")
             return jsonify(items=[])
 
         # Prints the start and name of the next 10 events
@@ -168,9 +166,7 @@ def give_calendar():
                 "end": end,
                 "summary": event["summary"]
             }
-
-            event_list.append(event_dict)
-        
+            event_list.append(event_dict)        
         return jsonify(items=event_list)
 
     except HttpError as error:
