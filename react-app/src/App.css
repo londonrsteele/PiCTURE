@@ -3,50 +3,59 @@
   height: 600px;
 
   display: grid;
-  grid-template-columns: 679px 339px;
-  column-gap: 3px;
-  grid-template-rows: 600px;
+  grid-template-columns: 1024px;
+  grid-template-rows: 200px 400px;
 
+  /* remove border before deployment */
   border: thin black solid;
+}
+
+.Weather {
+    width: 1021px;
+    height: 200px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.BottomRow {
+    width: 1021px;
+    height: 400px;
+
+    display: grid;
+    grid-template-columns: 679px 339px;
+    column-gap: 3px;
+    grid-template-rows: 400px;
 }
 
 .LeftColumn {
     width: 679px;
-    height: 600px;
+    height: 400px;
 
-    display: grid;
-    grid-template-columns: 679px;
-    grid-template-rows: 200px 400px;
+    display: flex;
+    flex-direction: column;
 }
 
 .RightColumn {
     width: 339px;
-    height: 600px;
+    height: 400px;
 
     display: grid;
     grid-template-columns: 339px;
-    grid-template-rows: 150px 150px 250px 50px;
+    grid-template-rows: 200px 150px 50px;
+}
+
+.QOTD {
+    width: 339px;
+    height: 200px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .Clock {
     width: 339px;
     height: 150px;
-
-    display: flex;
-    flex-direction: column;
-}
-
-.Sun {
-    width: 339px;
-    height: 150px;
-
-    display: flex;
-    flex-direction: column;
-}
-
-.QOTD {
-    width: 339px;
-    height: 250px;
 
     display: flex;
     flex-direction: column;

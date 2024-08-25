@@ -9,27 +9,26 @@ import Weather from "./components/Weather"
 function App() {
     return (
         <div className="App">
-            <div className="LeftColumn">
-                <div>
-                    <Weather />
-                </div>
-                <div>
-                    <Calendar />
-                </div>
+            <div className="Weather">
+                <Weather />
             </div>
-            <div className="RightColumn">
-                <div className="Clock">
-                    <DateTime />
+            <div className="BottomRow">
+                <div className="LeftColumn">
+                    <div className="Calendar">
+                        <Calendar />
+                    </div>
                 </div>
-                <div className="Sun">
-
-                </div>
-                <div className="QOTD">
-                    <Quote />
-                </div>
-                <div className="Status">
-                    <Updated />
-                    <WiFi />
+                <div className="RightColumn">
+                    <div className="QOTD">
+                        <Quote />
+                    </div>
+                    <div className="Clock">
+                        <DateTime />
+                    </div>
+                    <div className="Status">
+                        <Updated />
+                        <WiFi />
+                    </div>
                 </div>
             </div>
         </div>
