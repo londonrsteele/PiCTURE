@@ -21,6 +21,9 @@ import openmeteo_requests
 import requests_cache
 from retry_requests import retry
 import json
+import numpy
+from functools import reduce
+import math
 
 #########################################################################################
 # Initialize app
@@ -197,33 +200,75 @@ def give_weather():
     }
     responses = openmeteo.weather_api(url, params=params)
     response = responses[0]
+    
+    return weather_helper(response)
+
+def weather_helper(response):
+    # Current variables
+    if int(response.Current().Variables(3).Value()) == 1:
+        day_or_night = "day"
+    else:
+        day_or_night = "night"
+
+    # Daily variables
+    max_temp = int(response.Daily().Variables(0).ValuesAsNumpy()[0])
+    min_temp = int(response.Daily().Variables(1).ValuesAsNumpy()[0])
+    sun_format = "%Y-%m-%dT%H:%M:%S"
+    sunrise_str = datetime.datetime.fromtimestamp(response.Daily().Variables(2).ValuesInt64(0)).isoformat()
+    sunrise_object = datetime.datetime.strptime(sunrise_str, sun_format)
+    sunrise = sunrise_object.strftime("%I:%M %p")
+    sunset_str = datetime.datetime.fromtimestamp(response.Daily().Variables(3).ValuesInt64(0)).isoformat()
+    sunset_object = datetime.datetime.strptime(sunset_str, sun_format)
+    sunset = sunset_object.strftime("%I:%M %p")
+    daylight_duration_sec = int(response.Daily().Variables(4).ValuesAsNumpy()[0])
+    daylight_duration_hrs = int(math.floor(daylight_duration_sec / 60 / 60))
+    daylight_duration_min = int(round(daylight_duration_sec / 60 % 60, 0))
+
+    # Weather code -> string
+    # Weather code -> icon
+    weather_code = weathercode_helper(int(response.Current().Variables(5).Value()))
+    # Create dict to jsonify
     json_response = {
-        "latitude": response.Latitude(),
-        "longitude": response.Longitude(),
         "current": [
-            {"temperature": response.Current().Variables(0).Value()},
-            {"relative_humidity": response.Current().Variables(1).Value()},
-            {"feels_like_temp": response.Current().Variables(2).Value()},
-            {"day_or_night": response.Current().Variables(3).Value()},
+            {"temperature": int(response.Current().Variables(0).Value())},
+            {"relative_humidity": int(response.Current().Variables(1).Value())},
+            {"feels_like_temp": int(response.Current().Variables(2).Value())},
+            {"day_or_night": day_or_night},
             {"precipitation": response.Current().Variables(4).Value()},
-            {"weather_code": response.Current().Variables(5).Value()},
-            {"cloud_cover": response.Current().Variables(6).Value()},
-            {"wind_speed": response.Current().Variables(7).Value()}
+            {"weather_code_str": weather_code["string"]},
+            {"weather_code_icon": weather_code["icon"]},
+            {"cloud_cover": int(response.Current().Variables(6).Value())},
+            {"wind_speed": int(response.Current().Variables(7).Value())}
         ],
         "daily": [
-            {"max_temp": response.Daily().Variables(0).Value()},
-            {"min_temp": response.Daily().Variables(1).Value()},
-            {"sunrise": response.Daily().Variables(2).Value()},
-            {"sunset": response.Daily().Variables(3).Value()},
-            {"daylight_duration": response.Daily().Variables(4).Value()}
+            {"max_temp": max_temp},
+            {"min_temp": min_temp},
+            {"sunrise": sunrise},
+            {"sunset": sunset},
+            {"daylight_duration_hrs": daylight_duration_hrs},
+            {"daylight_duration_min": daylight_duration_min}
         ]
     }
+    print(json_response)
     return json.dumps(json_response)
 
+def weathercode_helper(weather_code):
+    weather_string_and_icon = {}
 
+    match weather_code:
+        case 0: 
+            weather_string_and_icon["string"] = "Clear sky"
+            weather_string_and_icon["icon"] = "Clear sky icon"
+        case _:
+            weather_string_and_icon["string"] = "Error"
+            weather_string_and_icon["icon"] = "Error"
+
+    return weather_string_and_icon
 
 #########################################################################################
 # Running app
 #########################################################################################
 if __name__ == "__main__":
     app.run(debug=True)
+
+    
