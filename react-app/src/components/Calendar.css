@@ -7,6 +7,7 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    font-size: 16px;
 
     margin: 3px;
     border: 3px solid;
@@ -46,21 +47,30 @@
 
 .CalendarItem-date {
     background-color: transparent;
-    width: 228px;
-    height: 70px;
+    width: 218px;
+    height: 60px;
 
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     word-break: break-all;
     justify-content: center;
     padding: 5px;
+    line-height: 25px;
+}
+
+.CalendarItem-date-day {
+    font-weight: bold;
+}
+
+.CalendarItem-date-date {
+    font-weight: normal;
 }
 
 .CalendarItem-name {
     background-color: transparent;
     width: 228px;
     height: 70px;
-
     display: flex;
     flex-wrap: wrap;
     word-break: break-all;

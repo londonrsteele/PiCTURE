@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./Calendar.css"
 
-function CalendarItem({ date, name, start, end }) {
+function CalendarItem({ day, date, name, start, end }) {
     return (
         <div className="CalendarItem">
             <div className="CalendarItem-date">
-                {date}
+                <div className="CalendarItem-date-day">
+                    {day}
+                </div>
+                <div className="CalendarItem-date-date">
+                    {date}
+                </div>
             </div>
             <div className="CalendarItem-name">
                 {name}
@@ -53,6 +58,7 @@ export default function Updated() {
         return (
             <div className="CalendarBox" >
                 <CalendarItem
+                    day={calendar.list_of_events[0].day}
                     date={calendar.list_of_events[0].date}
                     name={calendar.list_of_events[0].summary}
                     start={calendar.list_of_events[0].start}
@@ -65,12 +71,14 @@ export default function Updated() {
         return (
             <div className="CalendarBox" >
                 <CalendarItem
+                    day={calendar.list_of_events[0].day}
                     date={calendar.list_of_events[0].date}
                     name={calendar.list_of_events[0].summary}
                     start={calendar.list_of_events[0].start}
                     end={calendar.list_of_events[0].end}
                 />
                 <CalendarItem
+                    day={calendar.list_of_events[1].day}
                     date={calendar.list_of_events[1].date}
                     name={calendar.list_of_events[1].summary}
                     start={calendar.list_of_events[1].start}
@@ -83,18 +91,21 @@ export default function Updated() {
         return (
             <div className="CalendarBox" >
                 <CalendarItem
+                    day={calendar.list_of_events[0].day}
                     date={calendar.list_of_events[0].date}
                     name={calendar.list_of_events[0].summary}
                     start={calendar.list_of_events[0].start}
                     end={calendar.list_of_events[0].end}
                 />
                 <CalendarItem
+                    day={calendar.list_of_events[1].day}
                     date={calendar.list_of_events[1].date}
                     name={calendar.list_of_events[1].summary}
                     start={calendar.list_of_events[1].start}
                     end={calendar.list_of_events[1].end}
                 />
                 <CalendarItem
+                    day={calendar.list_of_events[2].day}
                     date={calendar.list_of_events[2].date}
                     name={calendar.list_of_events[2].summary}
                     start={calendar.list_of_events[2].start}
@@ -107,24 +118,28 @@ export default function Updated() {
         return (
             <div className="CalendarBox" >
                 <CalendarItem
+                    day={calendar.list_of_events[0].day}
                     date={calendar.list_of_events[0].date}
                     name={calendar.list_of_events[0].summary}
                     start={calendar.list_of_events[0].start}
                     end={calendar.list_of_events[0].end}
                 />
                 <CalendarItem
+                    day={calendar.list_of_events[1].day}
                     date={calendar.list_of_events[1].date}
                     name={calendar.list_of_events[1].summary}
                     start={calendar.list_of_events[1].start}
                     end={calendar.list_of_events[1].end}
                 />
                 <CalendarItem
+                    day={calendar.list_of_events[2].day}
                     date={calendar.list_of_events[2].date}
                     name={calendar.list_of_events[2].summary}
                     start={calendar.list_of_events[2].start}
                     end={calendar.list_of_events[2].end}
                 />
                 <CalendarItem
+                    day={calendar.list_of_events[3].day}
                     date={calendar.list_of_events[3].date}
                     name={calendar.list_of_events[3].summary}
                     start={calendar.list_of_events[3].start}
@@ -137,30 +152,35 @@ export default function Updated() {
         return (
             <div className="CalendarBox" >
                 <CalendarItem
+                    day={calendar.list_of_events[0].day}
                     date={calendar.list_of_events[0].date}
                     name={calendar.list_of_events[0].summary}
                     start={calendar.list_of_events[0].start}
                     end={calendar.list_of_events[0].end}
                 />
                 <CalendarItem
+                    day={calendar.list_of_events[1].day}
                     date={calendar.list_of_events[1].date}
                     name={calendar.list_of_events[1].summary}
                     start={calendar.list_of_events[1].start}
                     end={calendar.list_of_events[1].end}
                 />
                 <CalendarItem
+                    day={calendar.list_of_events[2].day}
                     date={calendar.list_of_events[2].date}
                     name={calendar.list_of_events[2].summary}
                     start={calendar.list_of_events[2].start}
                     end={calendar.list_of_events[2].end}
                 />
                 <CalendarItem
+                    day={calendar.list_of_events[3].day}
                     date={calendar.list_of_events[3].date}
                     name={calendar.list_of_events[3].summary}
                     start={calendar.list_of_events[3].start}
                     end={calendar.list_of_events[3].end}
                 />
                 <CalendarItem
+                    day={calendar.list_of_events[4].day}
                     date={calendar.list_of_events[4].date}
                     name={calendar.list_of_events[4].summary}
                     start={calendar.list_of_events[4].start}
