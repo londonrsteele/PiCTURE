@@ -50,38 +50,39 @@ export default function Weather() {
 
     return (
         <div className="WeatherBox" >
-            <div className="WeatherCode">
+            <div className="Weather-Code">
                 {weather.weather_code_icon}
                 <br />
                 {weather.weather_code_str}
             </div>
-            <div classname="Temperature">
+            <div className="Temperature">
                 <div className="Temperature-Now">
                     {weather.temperature}&deg;F
                 </div>
                 <div className="Temperature-FeelsLike">
-                    Feels Like: {weather.feels_like_temp}&deg;F
+                    <b>Feels Like:</b> {weather.feels_like_temp}&deg;F
                 </div>
                 <div className="Temperature-HiLo">
                     {weather.min_temp}&deg;F  |  {weather.max_temp}&deg;F
                 </div>
             </div>
             <div className="Details">
-                Humidity    {weather.relative_humidity}%
-                Cloud Cover {weather.cloud_cover}%
-                Precip      {weather.precipitation}"
-                Wind Speed  {weather.wind_speed}mph
+                <b>Humidity:</b> {weather.relative_humidity}% <br />
+                <b>Cloud Cover:</b> {weather.cloud_cover}% <br />
+                <b>Precip:</b> {weather.precipitation}" <br />
+                <b>Wind Speed:</b> {weather.wind_speed}mph
             </div>
             <div className="Sun">
                 <div className="Sun-Up">
-                    icon
+                    icon <br />
                     {weather.sunrise}
                 </div>
                 <div className="Sun-Down">
-                    icon
+                    icon <br />
                     {weather.sunset}
                 </div>
                 <div className="Sun-Duration">
+                    Hours of Sunlight: <br />
                     {weather.daylight_duration_hrs}:{weather.daylight_duration_min}
                 </div>
             </div>

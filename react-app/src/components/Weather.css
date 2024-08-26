@@ -1,0 +1,76 @@
+.WeatherBox {
+    background-color: lightblue;
+    width: 1008px;
+    height: 182px;
+    font-size: 20px;
+
+    display: grid;
+    grid-template-columns: 252px 252px 252px 252px;
+    grid-template-rows: 182px;
+    
+    margin: 3px;
+    border: 3px solid;
+    border-radius: 20px;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+}
+
+.Weather-Code {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.Temperature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Temperature-Now {
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.Temperature-FeelsLike {
+
+}
+
+.Temperature-HiLo {
+
+}
+
+.Details {
+    font-size: 22px;
+    line-height: 40px;
+    align-content: center;
+}
+
+.Sun {
+    width: 250px;
+    height: 182px;
+
+    display: grid;
+    grid-template-columns: 125px 125px;
+    grid-template-rows: 121px 61px;
+
+    justify-items: center;
+}
+
+.Sun-Up {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.Sun-Down {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.Sun-Duration {
+    display: flex;
+
+    grid-column: 1 / span 2;
+    grid-row: 2 / 3;
+    
+    text-align: center;
+}
