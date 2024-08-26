@@ -15,6 +15,22 @@
 }
 
 .Weather-Code {
+    width: 225px;
+    height: 182px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Weather-Code-Icon {
+    height: 150px;
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.Weather-Code-Text {
     display: flex;
     justify-content: center;
     text-align: center;
@@ -36,7 +52,7 @@
 }
 
 .Temperature-HiLo {
-
+    line-height: 50px;
 }
 
 .Details {

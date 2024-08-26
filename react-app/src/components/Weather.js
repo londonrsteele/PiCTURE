@@ -51,9 +51,8 @@ export default function Weather() {
     return (
         <div className="WeatherBox" >
             <div className="Weather-Code">
-                {weather.weather_code_icon}
-                <br />
-                {weather.weather_code_str}
+                <img src={weather.weather_code_icon} class="Weather-Code-Icon" alt="Weather Code Icon"></img>
+                <div className="Weather-Code-Text">{weather.weather_code_str}</div>
             </div>
             <div className="Temperature">
                 <div className="Temperature-Now">

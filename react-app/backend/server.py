@@ -226,7 +226,7 @@ def weather_helper(response):
 
     # Weather code -> string
     # Weather code -> icon
-    weather_code = weathercode_helper(int(response.Current().Variables(5).Value()))
+    weather_code = weathercode_helper(int(response.Current().Variables(5).Value()), day_or_night)
     # Create dict to jsonify
     json_response = {
         "current": [
@@ -252,16 +252,52 @@ def weather_helper(response):
     print(json_response)
     return json.dumps(json_response)
 
-def weathercode_helper(weather_code):
+def weathercode_helper(weather_code, day_or_night):
     weather_string_and_icon = {}
 
     match weather_code:
-        case 0: 
+        case 0 | 1: 
             weather_string_and_icon["string"] = "Clear sky"
-            weather_string_and_icon["icon"] = "Clear sky icon"
+            if day_or_night == "day":
+                weather_string_and_icon["icon"] = "ClearSkyDay.svg"
+            else:
+                weather_string_and_icon["icon"] = "ClearSkyNight.svg"
+        case 2:
+            weather_string_and_icon["string"] = "Partly cloudy"
+            if day_or_night == "day":
+                weather_string_and_icon["icon"] = "PartlyCloudyDay.svg"
+            else:
+                weather_string_and_icon["icon"] = "PartlyCloudyNight.svg"
+        case 3:
+            weather_string_and_icon["string"] = "Overcast"
+            weather_string_and_icon["icon"] = "Cloudy.svg"
+        case 45 | 48:
+            weather_string_and_icon["string"] = "Foggy"
+            weather_string_and_icon["icon"] = "Fog.svg"
+        case 51 | 53 | 55:
+            weather_string_and_icon["string"] = "Drizzle"
+            weather_string_and_icon["icon"] = "Drizzle.svg"
+        case 56 | 57:
+            weather_string_and_icon["string"] = "Freezing drizzle"
+            weather_string_and_icon["icon"] = "FreezingRain.svg"
+        case 61 | 63 | 80 | 81:
+            weather_string_and_icon["string"] = "Rain"
+            weather_string_and_icon["icon"] = "Rain.svg"
+        case 65 | 82:
+            weather_string_and_icon["string"] = "Heavy rain"
+            weather_string_and_icon["icon"] = "RainHeavy.svg"
+        case 66 | 67:
+            weather_string_and_icon["string"] = "Freezing rain"
+            weather_string_and_icon["icon"] = "FreezingRainHeavy.svg"
+        case 71 | 73 | 75 | 77 | 85 | 86: 
+            weather_string_and_icon["string"] = "Snow"
+            weather_string_and_icon["icon"] = "Snow.svg"
+        case 95:
+            weather_string_and_icon["string"] = "Thunderstorm"
+            weather_string_and_icon["icon"] = "Thunderstorm.svg"
         case _:
-            weather_string_and_icon["string"] = "Error"
-            weather_string_and_icon["icon"] = "Error"
+            weather_string_and_icon["string"] = str("Error: Weather Code "+str(weather_code))
+            weather_string_and_icon["icon"] = str("Error: Weather Code "+str(weather_code))
 
     return weather_string_and_icon
 
