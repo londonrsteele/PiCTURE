@@ -21,3 +21,4 @@
 /.cache.sqlite
 /node_modules
 /react-app/.yarn/install-state.gz
+/react-app/backend/tomorrow_io.py
