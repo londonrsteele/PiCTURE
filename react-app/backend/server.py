@@ -29,7 +29,7 @@ import math
 #########################################################################################
 # Initialize app
 #########################################################################################
-config = dotenv_values(".env")
+load_dotenv()
 app = Flask(__name__)
 
 #########################################################################################
@@ -115,7 +115,7 @@ def give_calendar():
         events_result = (
             service.events()
             .list(
-                calendarId=config["ALEX_AND_LONDON_CALID"],
+                calendarId=os.getenv("ALEX_AND_LONDON_CALID"),
                 timeMin=now,
                 maxResults=5,
                 singleEvents=True,
@@ -254,7 +254,6 @@ def weather_helper(response):
             {"daylight_duration_min": daylight_duration_min}
         ]
     }
-    print(json_response)
     return json.dumps(json_response)
 
 def weathercode_helper(weather_code, day_or_night):
