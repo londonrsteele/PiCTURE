@@ -36,13 +36,16 @@ export default function Updated() {
     });
 
     useEffect(() => {
-        fetch("/calendar").then(res =>
-            res.json().then(data => {
-                setCalendar({
-                    list_of_events: data.items
-                });
-            })
-        );
+        const interval = setInterval(() => {
+            fetch("/calendar").then(res =>
+                res.json().then(data => {
+                    setCalendar({
+                        list_of_events: data.items
+                    });
+                })
+            );
+        }, (5 * 60 * 1000)); // every 5 min (5min*60sec*1000ms)
+        return () => clearInterval(interval);
     }, []);
 
     if (calendar.list_of_events.length === 0) {

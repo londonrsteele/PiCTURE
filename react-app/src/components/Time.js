@@ -12,18 +12,21 @@ export default function DateTime() {
     });
 
     useEffect(() => {
-        fetch("/time").then(res =>
-            res.json().then(data => {
-                setDateTime({
-                    dow: data.dow,
-                    month: data.month,
-                    date: data.date,
-                    year: data.year,
-                    time: data.time,
-                    ampm: data.ampm
-                });
-            })
-        );
+        const interval = setInterval(() => {
+            fetch("/time").then(res =>
+                res.json().then(data => {
+                    setDateTime({
+                        dow: data.dow,
+                        month: data.month,
+                        date: data.date,
+                        year: data.year,
+                        time: data.time,
+                        ampm: data.ampm
+                    });
+                })
+            );
+        }, 1000); // every 1 sec (1*1000ms)
+        return () => clearInterval(interval);
     }, []);
 
     return (

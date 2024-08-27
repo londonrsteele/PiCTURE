@@ -7,13 +7,16 @@ export default function Updated() {
     });
 
     useEffect(() => {
-        fetch("/updated").then(res =>
-            res.json().then(data => {
-                setTime({
-                    time: data.time
-                });
-            })
-        );
+        const interval = setInterval(() => {
+            fetch("/updated").then(res =>
+                res.json().then(data => {
+                    setTime({
+                        time: data.time
+                    });
+                })
+            );
+        }, (60*1000)); // every 1 min (60sec*1000ms)
+        return () => clearInterval(interval);
     }, []);
 
     return (
