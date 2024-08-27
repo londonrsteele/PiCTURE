@@ -36,6 +36,13 @@ export default function Updated() {
     });
 
     useEffect(() => {
+        fetch("/calendar").then(res =>
+            res.json().then(data => {
+                setCalendar({
+                    list_of_events: data.items
+                });
+            })
+        );
         const interval = setInterval(() => {
             fetch("/calendar").then(res =>
                 res.json().then(data => {

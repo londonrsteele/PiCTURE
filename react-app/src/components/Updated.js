@@ -7,6 +7,13 @@ export default function Updated() {
     });
 
     useEffect(() => {
+        fetch("/updated").then(res =>
+            res.json().then(data => {
+                setTime({
+                    time: data.time
+                });
+            })
+        );
         const interval = setInterval(() => {
             fetch("/updated").then(res =>
                 res.json().then(data => {

@@ -23,6 +23,29 @@ export default function Weather() {
     });
 
     useEffect(() => {
+        fetch("/weather").then(res =>
+            res.json().then(data => {
+                setWeather({
+                    // Current data
+                    temperature: data.current[0].temperature,
+                    relative_humidity: data.current[1].relative_humidity,
+                    feels_like_temp: data.current[2].feels_like_temp,
+                    day_or_night: data.current[3].day_or_night,
+                    precipitation: data.current[4].precipitation,
+                    weather_code_str: data.current[5].weather_code_str,
+                    weather_code_icon: data.current[6].weather_code_icon,
+                    cloud_cover: data.current[7].cloud_cover,
+                    wind_speed: data.current[8].wind_speed,
+                    // Daily data
+                    max_temp: data.daily[0].max_temp,
+                    min_temp: data.daily[1].min_temp,
+                    sunrise: data.daily[2].sunrise,
+                    sunset: data.daily[3].sunset,
+                    daylight_duration_hrs: data.daily[4].daylight_duration_hrs,
+                    daylight_duration_min: data.daily[5].daylight_duration_min
+                });
+            })
+        );
         const interval = setInterval(() => {
             fetch("/weather").then(res =>
                 res.json().then(data => {

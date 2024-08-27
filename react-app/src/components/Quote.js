@@ -8,6 +8,14 @@ export default function Quote() {
     });
 
     useEffect(() => {
+        fetch("/quote").then(res =>
+            res.json().then(data => {
+                setQuote({
+                    quote: data[0].q,
+                    author: data[0].a
+                });
+            })
+        );
         const interval = setInterval(() => {
             fetch("/quote").then(res =>
                 res.json().then(data => {
