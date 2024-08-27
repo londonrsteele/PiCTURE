@@ -19,3 +19,5 @@
 /react-app/backend/quickstart.py
 /token.json
 /.cache.sqlite
+/node_modules
+/react-app/.yarn/install-state.gz

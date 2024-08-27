@@ -9,6 +9,7 @@ import datetime
 import subprocess
 import os.path
 import requests
+from dotenv import load_dotenv, dotenv_values
 # Google Calendar imports
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -28,6 +29,7 @@ import math
 #########################################################################################
 # Initialize app
 #########################################################################################
+config = dotenv_values(".env")
 app = Flask(__name__)
 
 #########################################################################################
@@ -113,7 +115,7 @@ def give_calendar():
         events_result = (
             service.events()
             .list(
-                calendarId="primary",
+                calendarId=config["ALEX_AND_LONDON_CALID"],
                 timeMin=now,
                 maxResults=5,
                 singleEvents=True,
@@ -146,7 +148,9 @@ def give_calendar():
                 event_date = event["start"].get("dateTime")
                 date_format = "%Y-%m-%dT%H:%M:%S%z"
                 date_object = datetime.datetime.strptime(event_date, date_format)
-                date = str(date_object.strftime("%a %b %d, %Y"))
+                date = str(date_object.strftime("%b %d, %Y"))
+                day = str(date_object.strftime("%A"))
+
             
             # for all-day events
             else:
@@ -156,14 +160,16 @@ def give_calendar():
                 event_date = event["start"].get("date")
                 date_format = "%Y-%m-%d"
                 date_object = datetime.datetime.strptime(event_date, date_format)
-                date = str(date_object.strftime("%a %b %d, %Y"))
+                day = str(date_object.strftime("%A"))
+                date = str(date_object.strftime("%b %d, %Y"))
 
             # Check if date == Today
-            today = str(datetime.datetime.now().strftime("%a %b %d, %Y"))
+            today = str(datetime.datetime.now().strftime("%b %d, %Y"))
             if date == today:
                 date = "Today"
 
             event_dict = {
+                "day": day,
                 "date": date,
                 "start": start,
                 "end": end,
@@ -224,8 +230,7 @@ def weather_helper(response):
     daylight_duration_hrs = int(math.floor(daylight_duration_sec / 60 / 60))
     daylight_duration_min = int(round(daylight_duration_sec / 60 % 60, 0))
 
-    # Weather code -> string
-    # Weather code -> icon
+    # Pass Current and Daily Weather Codes
     weather_code = weathercode_helper(int(response.Current().Variables(5).Value()), day_or_night)
     # Create dict to jsonify
     json_response = {
