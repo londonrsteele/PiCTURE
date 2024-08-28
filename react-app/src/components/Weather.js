@@ -99,12 +99,12 @@ export default function Weather() {
             </div>
             <div className="Sun">
                 <div className="Sun-Up">
-                    icon <br />
-                    {weather.sunrise}
+                    <img src="SunUp.svg" class="Sun-Up-Icon" alt="Sun Up Icon"></img>
+                    <div className="Sun-Up-Text">{weather.sunrise}</div>
                 </div>
                 <div className="Sun-Down">
-                    icon <br />
-                    {weather.sunset}
+                    <img src="SunDown.svg" class="Sun-Down-Icon" alt="Sun Down Icon"></img>
+                    <div className="Sun-Down-Text">{weather.sunset}</div>
                 </div>
                 <div className="Sun-Duration">
                     Hours of Sunlight: <br />
