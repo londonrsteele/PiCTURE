@@ -36,7 +36,7 @@
     height: 70px;
 
     display: grid;
-    grid-template-columns: 243px 243px 153px;
+    grid-template-columns: 200px 286px 153px;
     grid-template-rows: 70px;
 
     align-self: center;
@@ -47,7 +47,7 @@
 
 .CalendarItem-date {
     background-color: transparent;
-    width: 218px;
+    width: 200px;
     height: 60px;
 
     display: flex;
@@ -69,11 +69,11 @@
 
 .CalendarItem-name {
     background-color: transparent;
-    width: 218px;
+    width: 286px;
     height: 60px;
     display: flex;
     flex-wrap: wrap;
-    word-break: break-all;
+    word-break: break-word;
     padding: 5px;
     align-content: center;
 }
