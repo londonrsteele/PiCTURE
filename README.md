@@ -2,7 +2,7 @@
 Raspberry (Pi)CTURE Frame
 
 ![Screenshot of PiCTURE Frame](Screenshot1.JPG)
-![Another screenshot of PiCTURE Frame](Screenshot2.JPG)
+![Another screenshot of PiCTURE Frame](Screenshot2.jpg)
 
 # Times Updated
  - Weather - Every 5 minutes (288 requests to Open-Meteo per day)
